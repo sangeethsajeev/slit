@@ -8,4 +8,3 @@ pdfplumber
 tiktoken
 faiss-gpu
 faiss-cpu
-pickle
