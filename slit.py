@@ -6,6 +6,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
+
 # Initialize a session state variable called disabled to False
 st.session_state["disabled"] = False
 
@@ -17,8 +18,6 @@ llm = OpenAI(temperature=0.7, openai_api_key='sk-IzneLaWPS9bcD3oy4Qv2T3BlbkFJkiR
 # Initialize a session state variable called disabled to False
 st.session_state["disabled"] = False
 
-
-filename = st.file_uploader(label='Drag the PDF file here. Limit 200MB', type=['pdf'])
 
 text = 'some text string'
 
