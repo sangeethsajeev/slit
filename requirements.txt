@@ -1,0 +1,11 @@
+streamlit
+langchain
+langchain-community
+langchain-openai
+langchain-core
+chromadb
+pdfplumber
+tiktoken
+faiss-gpu
+faiss-cpu
+pickle
