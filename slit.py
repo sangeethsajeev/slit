@@ -1,7 +1,9 @@
-
+import os
 import streamlit as st
 import pdfplumber
 from langchain_openai import OpenAI
+from langchain_openai import OpenAIEmbeddings
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
 # Initialize a session state variable called disabled to False
@@ -26,3 +28,22 @@ if filename is not None:
         text = ""
         for page in pdf.pages:
             text += page.extract_text()
+
+text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=150,
+        length_function=len
+    )
+
+
+# Process the PDF text and create the documents list
+documents = text_splitter.split_text(text=text)
+
+# Vectorize the documents and create vectorstore
+embeddings = OpenAIEmbeddings()
+vectorstore = FAISS.from_texts(documents, embedding=embeddings)
+
+st.session_state.processed_data = {
+    "document_chunks": documents,
+    "vectorstore": vectorstore,
+}
