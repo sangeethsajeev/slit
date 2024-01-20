@@ -12,11 +12,12 @@ from langchain.chains import ConversationalRetrievalChain
 # Initialize a session state variable called disabled to False
 st.session_state["disabled"] = False
 
-
+OPENAI_API_KEY = "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"
 filename = st.file_uploader(label='Drag the PDF file here. Limit 200MB', type=['pdf'])
 key = st.secrets["key"]
 print(key)
-llm = OpenAI(temperature=0.7, api_key=key)
+os.environ['OPENAI_API_KEY'] = key
+llm = OpenAI(temperature=0.7)
 
 # Initialize a session state variable called disabled to False
 st.session_state["disabled"] = False
