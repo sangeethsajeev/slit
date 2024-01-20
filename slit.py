@@ -12,8 +12,9 @@ st.session_state["disabled"] = False
 
 
 filename = st.file_uploader(label='Drag the PDF file here. Limit 200MB', type=['pdf'])
-openai_api_key = os.getenv('openai_api_key')
-llm = OpenAI(temperature=0.7, openai_api_key)
+key = os.getenv('openai_api_key')
+print(key)
+llm = OpenAI(temperature=0.7, key)
 
 # Initialize a session state variable called disabled to False
 st.session_state["disabled"] = False
