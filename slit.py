@@ -4,7 +4,7 @@ import pdfplumber
 from langchain_openai import OpenAI
 from langchain_openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-
+from langchain_community.vectorstores import FAISS
 
 
 # Initialize a session state variable called disabled to False
@@ -13,7 +13,7 @@ st.session_state["disabled"] = False
 
 filename = st.file_uploader(label='Drag the PDF file here. Limit 200MB', type=['pdf'])
 
-llm = OpenAI(temperature=0.7, openai_api_key='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')
+llm = OpenAI(temperature=0.7, openai_api_key='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')
 
 # Initialize a session state variable called disabled to False
 st.session_state["disabled"] = False
