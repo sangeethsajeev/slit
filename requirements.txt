@@ -6,5 +6,5 @@ langchain-core
 chromadb
 pdfplumber
 tiktoken
-faiss-gpu
+# faiss-gpu
 faiss-cpu
