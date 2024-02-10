@@ -8,15 +8,16 @@ from langchain_community.vectorstores import FAISS
 from langchain_openai import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain
 
+from configparser import ConfigParser
 
 # Initialize a session state variable called disabled to False
 st.session_state["disabled"] = False
 
-OPENAI_API_KEY = "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"
+
 filename = st.file_uploader(label='Drag the PDF file here. Limit 200MB', type=['pdf'])
-# key = st.secrets["key"]
+key = ConfigParser('secrets.ini')
 # print(key)
-os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
+os.environ['OPENAI_API_KEY'] = key
 llm = OpenAI(temperature=0.7)
 
 # Initialize a session state variable called disabled to False
