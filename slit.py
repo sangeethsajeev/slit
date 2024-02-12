@@ -9,13 +9,19 @@ from langchain_openai import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain
 
 from configparser import ConfigParser
+import os
+
+#reading open_ai key from secrets.ini file
+path=os.path.join(os.path.dirname(__file__),'secrets.ini')
+config = ConfigParser()
+config.read(path)
 
 # Initialize a session state variable called disabled to False
 st.session_state["disabled"] = False
 
 
 filename = st.file_uploader(label='Drag the PDF file here. Limit 200MB', type=['pdf'])
-key = ConfigParser('secrets.ini')
+key = config['secrets']['open_ai_key']
 # print(key)
 os.environ['OPENAI_API_KEY'] = key
 llm = OpenAI(temperature=0.7)
